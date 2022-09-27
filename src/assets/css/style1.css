@@ -4,7 +4,8 @@
 * {
   box-sizing: border-box;
   --cor-fundo: #FB6B6B;
-  --cor-fundo-card: #FFFFD4;
+  --cor-fundo-card: #FFFFFF;
+  --cor-fundo-card-aberto: #ffffd6;
   --cor-nao-lembrei: #FF3030;
   --cor-quase-nao-lembrei: #FF922E;
   --cor-zap: #2FBE34;
@@ -38,6 +39,36 @@ body {
   font-family: 'Recursive', cursive;
 }
 
+.aberto {
+  min-height: 130px;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--cor-fundo-card-aberto);
+  cursor: default;
+  margin-top: 10px;
+  padding: 20px 10px;
+}
+
+.numero-pergunta{
+  display: flex;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-family: 'Recursive', cursive;
+}
+.numero-pergunta img{
+  margin-left: 170px;
+}
+
 .header {
   position: fixed;
   height: 80px;
@@ -62,6 +93,27 @@ body {
 
 .main::-webkit-scrollbar {
   display: none;
+}
+
+.resposta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 130px;
+  width: 300px;
+  background-color: var(--cor-fundo-card-aberto);
+  cursor: default;
+  padding: 20px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.memoria{
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
 }
 
 .footer {
@@ -99,4 +151,51 @@ img.icone {
   color: var(--preto);
   width: 23px;
   height: 23px;
+}
+
+.icone .erro {
+  color: var(--nao-lembrei);
+}
+
+.icone .duvida {
+  color: var(--cor-quase-nao-lembrei);
+}
+
+.icone .acerto {
+  color: var(--cor-zap);
+}
+
+
+button {
+  width: 100%;
+  height: 40px;
+  background-color: green;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  filter: brightness(0.7)
+}
+button.error {
+  background-color: var(--cor-nao-lembrei);
+}
+
+button.almost {
+  background-color: var(--cor-quase-nao-lembrei);
+}
+
+button.zap {
+  background-color: var(--cor-zap);
+}
+
+.escondido{
+  display:none;
 }
