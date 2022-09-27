@@ -1,5 +1,8 @@
 /* estilos gerais da aplicação */
 
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&display=swap%27');
+
 * {
   box-sizing: border-box;
   --cor-fundo: #FB6B6B;
@@ -18,10 +21,11 @@ body {
   align-items: center;
   color: var(--preto);
   font-family: 'Recursive', sans-serif;
-  /* font-family: 'Righteous', cursive; */
+  /*font-family: 'Righteous', cursive;*/ 
+  background-color: var(--cor-fundo);
 }
 
-.flashcard {
+.flashcard { 
   width: 300px;
   height: 50px;
   display: flex;
@@ -149,7 +153,7 @@ img.icone {
   flex-direction: column;
 }
 
-.deck .header {
+/*.deck*/ .header {
   position: fixed;
   height: 80px;
   top: 0;
@@ -197,9 +201,10 @@ img.icone {
 
 
 
-.deck .header img {
+/*.deck*/ .header img {
   width: 52px;
   height: 60px;
+  margin-right: 20px;
 }
 
 .home {
