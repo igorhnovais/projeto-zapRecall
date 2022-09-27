@@ -1,0 +1,241 @@
+/* estilos gerais da aplicação */
+
+* {
+  box-sizing: border-box;
+  --cor-fundo: #FB6B6B;
+  --cor-fundo-card: #FFFFD4;
+  --cor-nao-lembrei: #FF3030;
+  --cor-quase-nao-lembrei: #FF922E;
+  --cor-zap: #2FBE34;
+  --preto: #333333;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--preto);
+  font-family: 'Recursive', sans-serif;
+  /* font-family: 'Righteous', cursive; */
+}
+
+.flashcard {
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-family: 'Recursive', cursive;
+}
+
+.flashcard.acerto {
+  color: var(--cor-zap);
+  text-decoration: line-through;
+}
+
+.flashcard.help {
+  color: var(--cor-quase-nao-lembrei);
+  text-decoration: line-through;
+}
+
+.flashcard.erro {
+  color: var(--cor-nao-lembrei);
+  text-decoration: line-through;
+}
+
+
+.flashcard.aberto {
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-fundo-card);
+  cursor: default;
+  padding: 20px 10px;
+}
+
+.aberto div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+.aberto.resposta div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aberto img {
+  cursor: pointer;
+}
+
+.action {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.button {
+  width: 100%;
+  height: 40px;
+  background-color: green;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  filter: brightness(0.7)
+}
+.button.error {
+  background-color: var(--cor-nao-lembrei);
+}
+
+.button.almost {
+  background-color: var(--cor-quase-nao-lembrei);
+}
+
+.button.zap {
+  background-color: var(--cor-zap);
+}
+
+
+.icone,
+img.icone {
+  color: var(--preto);
+  width: 23px;
+  height: 23px;
+}
+
+.icone svg {
+  width: 23px;
+  height: 23px;
+}
+
+
+.icone .erro {
+  color: var(--nao-lembrei);
+}
+
+.icone .duvida {
+  color: var(--cor-quase-nao-lembrei);
+}
+
+.icone .acerto {
+  color: var(--cor-zap);
+}
+
+
+.deck {
+  display: flex;
+  flex-direction: column;
+}
+
+.deck .header {
+  position: fixed;
+  height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 36px;
+  color: white;
+  font-family: "Righteous";
+  z-index: 1;
+  background-color: var(--cor-fundo);
+}
+
+.deck .main {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.deck .main::-webkit-scrollbar {
+  display: none;
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  min-height: 70px;
+  padding: 14px 10px;
+  font-size: 18px;
+  color: black;
+  position: fixed;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+
+.deck .header img {
+  width: 52px;
+  height: 60px;
+}
+
+.home {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+  position: absolute;
+  background-color: var(--cor-fundo);
+}
+
+
+
+.home h1 {
+  font-family: "Righteous", cursive;
+  font-size: 36px;
+  color: white;
+}
+
+
+.home button {
+  width: 246px;
+  height: 54px;
+  padding: 16px 22px;
+  border-radius: 5px;
+  color: #D70900;
+  border: 1px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.home button:hover {
+  background-color: #cea2a0
+}
