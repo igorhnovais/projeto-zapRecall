@@ -5,3 +5,5 @@ import './assets/css/reset.css';
 import './assets/css/style1.css';
 
 ReactDOM.render(<App />, document.querySelector('.root'));
+
+

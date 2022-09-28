@@ -1,12 +1,16 @@
-import Conteudo from "./Conteudo.js"
+import Deck from "./Deck.js";
+import FlashCards from "./FlashCards.js";
+
 
 import LogoPequeno from "./assets/img/logo.png";
-import Setinha from "./assets/img/setinha.png";
-import Play from "./assets/img/play-outline-icon.svg";
+
+import { useState } from "react";
 
 
 export default function App() {
-
+    const [quantidadeCards, setQuantidadeCards] = useState(8);
+    const [contador, setContador] = useState(0);
+    
     return (
         <>
             <header className="header">
@@ -16,30 +20,18 @@ export default function App() {
 
             <main className="main">
                 <section>
-                    <div className="numero-pergunta escondid">
-                        <h3>Pergunta 1</h3>
-                        <img className="icone" src={Play} alt={Play} />
-                    </div>
-                    <div className="aberto escondid">
-                        <h3> O que é JSX? </h3>
-                        <img className="icone" src={Setinha} alt={Setinha}/>                       
-                    </div>
-                    <div className="resposta escondid">
-                        <h3> Uma extensão de linguagem do JavaScript</h3>
-                        <div className="memoria">
-                            <button className="error"> <h6>Não Lembrei</h6></button>
-                            <button className="almost"> <h6>Quase não Lembrei</h6></button>
-                            <button className="zap"> <h6>Zap!</h6></button>
-                        </div>
-                    </div>
+                   {Deck.map((item, i) => <FlashCards 
+                   i={i} 
+                   pergunta={item.pergunta} 
+                   resposta={item.resposta}
+                   contador={contador}
+                   setContador={setContador}
+                   key={i}/> )}   
                 </section>
-
-
             </main>
 
-
             <footer className="footer">
-                <h1>0/4 CONCLUÍDOS</h1>
+                <h1>{contador}/{quantidadeCards} CONCLUÍDOS</h1>
             </footer>
         </>
     )
