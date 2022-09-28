@@ -9,19 +9,19 @@ import Play from "./assets/img/play-outline-icon.svg";
 
 export default function FlashCards(props) {
 
-    const [primeiraDiv, SetPrimeiraDiv] = useState("");
+    const [primeiraDiv, SetPrimeiraDiv] = useState("flex");
     const [segundaDiv, SetSegundaDiv] = useState("escondido");
     const [terceiraDiv, SetTerceiraDiv] = useState("escondido");
-    const [classe, Setclasse] = useState("");
+    const [classe, Setclasse] = useState("#333333");
     const [icone, setIcone] = useState(Play);
-    const [svg, setSvg] = useState("icone");
+    const [svg, setSvg] = useState("#333333");
     const [num, setNum] = useState(1);
 
 
     function clicaFlashcard(clique){
         switch (clique) {
             case 1:
-                SetPrimeiraDiv("escondido");
+                SetPrimeiraDiv("none");
                 SetSegundaDiv('');
                 break;
 
@@ -35,7 +35,7 @@ export default function FlashCards(props) {
                 SetPrimeiraDiv('');
                 Setclasse("vermelho");
                 setIcone(Close);
-                setSvg("svgErro");
+                setSvg("invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)");
                 props.setContador(props.contador+1);
                 setNum(6);
                 break;
@@ -45,7 +45,7 @@ export default function FlashCards(props) {
                 SetPrimeiraDiv('');
                 Setclasse("amarelo");
                 setIcone(Help);
-                setSvg("svgDuvida");
+                setSvg("invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)");
                 props.setContador(props.contador+1);
                 setNum(6);
                 break;
@@ -55,7 +55,7 @@ export default function FlashCards(props) {
                 SetPrimeiraDiv('');
                 Setclasse("verde");
                 setIcone(Checkmark);
-                setSvg("svgAcerto");
+                setSvg("invert(59%) sepia(10%) saturate(3410%) hue-rotate(72deg) brightness(99%) contrast(88%)");
                 props.setContador(props.contador+1);
                 setNum(6);
                 break;
@@ -67,27 +67,114 @@ export default function FlashCards(props) {
 
     return (
         <>
-            <div onClick={() => clicaFlashcard(num)} className={`numero-pergunta ${primeiraDiv}`}>
-                <h3 className={`${classe}`}>Pergunta {props.i + 1}</h3>
-                <img className={svg} src={icone} alt={icone} />
-            </div>
+            <DivNumeroPergunta onClick={() => clicaFlashcard(num)} numeroPergunta={primeiraDiv} cor={svg}>          
+                <DivFlex>
+                    <h3 className={classe} >Pergunta {props.i + 1}</h3>
+                    <img src={icone} alt={icone} />
+                </DivFlex>
+            </DivNumeroPergunta>
 
-            <div onClick={() => clicaFlashcard(2)} className={`aberto ${segundaDiv}`}>
+            <DivAberto onClick={() => clicaFlashcard(2)} aberto={segundaDiv}>
                 <h3> {props.pergunta} </h3>
                 <ImgIcone src={Setinha} alt={Setinha} />
-            </div>
+            </DivAberto>
 
-            <div className={`resposta ${terceiraDiv}`}>
+            <DivResposta resposta={terceiraDiv}>
                 <h3> {props.resposta}</h3>
                 <DivMemoria>
                     <ButtonError onClick={() => clicaFlashcard(3)}> <h6>Não Lembrei</h6></ButtonError>
                     <ButtonAlmost onClick={() => clicaFlashcard(4)}> <h6>Quase não Lembrei</h6></ButtonAlmost>
                     <ButtonZap onClick={() => clicaFlashcard(5)}> <h6>Zap!</h6></ButtonZap>
                 </DivMemoria>
-            </div>
+            </DivResposta>
         </>
     )
 }
+
+const DivNumeroPergunta = styled.div`
+    display: ${props => props.numeroPergunta };
+    width: 300px;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    margin: 10px 0px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-family: 'Recursive', cursive;
+    & img{
+        margin-left: 170px;
+        width: 23px;
+        height: 23px;
+        filter: ${props => props.cor};
+    }
+    & h3{
+        margin-top: 5px;
+    }
+    .vermelho{
+    color: var(--cor-nao-lembrei);
+    text-decoration: line-through;
+    font-weight:600;
+    }
+
+    .amarelo{
+    color: var(--cor-quase-nao-lembrei);
+    text-decoration: line-through;
+    font-weight:600;
+    }
+
+    .verde{
+    color: var(--cor-zap);
+    text-decoration: line-through;
+    font-weight:600;
+    }
+
+`
+
+const DivAberto = styled.div`
+    min-height: 130px;
+    width: 300px;
+    display: ${props => props.aberto === "escondido" ? "none" : "flex"};
+    justify-content: space-between;
+    background-color: var(--cor-fundo-card-aberto);
+    cursor: default;
+    margin-top: 10px;
+    padding: 20px 10px;
+    & img{
+        margin-left: 0;
+        margin-top: 90px;
+        width: 23px;
+        height: 23px;
+        filter: ${props => props.cor};
+    }
+`
+
+const DivResposta = styled.div`
+    width: 100%;
+    display: ${props => props.resposta === "escondido" ? "none" : "flex"};
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 130px;
+    width: 300px;
+    background-color: var(--cor-fundo-card-aberto);
+    cursor: default;
+    padding: 20px 10px;
+    border-radius: 5px;
+    margin-top: 10px; 
+    & img{
+        margin-left: 170px;
+        width: 23px;
+        height: 23px;
+        filter: ${props => props.cor};
+    }
+`
+
+const DivFlex = styled.div`
+    display: flex;
+`
 
 const ImgIcone = styled.img`
     color: var(--preto);

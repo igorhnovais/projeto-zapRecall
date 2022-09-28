@@ -6,6 +6,9 @@ import LogoPequeno from "./assets/img/logo.png";
 
 import { useState } from "react";
 import styled from 'styled-components';
+import Reset from "./Reset.js";
+import GlobalStyle from "./GlobalStyle.js";
+
 
 
 export default function App() {
@@ -13,7 +16,10 @@ export default function App() {
     const [contador, setContador] = useState(0);
 
     return (
-        <Body>
+        
+        <BodyStyle>
+            <Reset/>
+            <GlobalStyle/>
             <Header>
                 <img src={LogoPequeno} alt="logo zapRecall" />
                 <h1> ZapRecall </h1>
@@ -34,20 +40,20 @@ export default function App() {
             <Footer>
                 <h1>{contador}/{quantidadeCards} CONCLUÍDOS</h1>
             </Footer>
-        </Body>
+        </BodyStyle>
     )
 }
 
-const Body = styled.body`
+const BodyStyle = styled.div`   
     width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--preto);
-  font-family: 'Recursive', sans-serif;
-  /*font-family: 'Righteous', cursive;*/ 
-  background-color: var(--cor-fundo);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--preto);
+    font-family: 'Recursive', sans-serif;
+    /*font-family: 'Righteous', cursive;*/ 
+    background-color: var(--cor-fundo);
 `
 
 const Header = styled.header`
