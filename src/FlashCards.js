@@ -74,9 +74,9 @@ export default function FlashCards(props) {
                 </DivFlex>
             </DivNumeroPergunta>
 
-            <DivAberto onClick={() => clicaFlashcard(2)} aberto={segundaDiv}>
+            <DivAberto aberto={segundaDiv}>
                 <h3> {props.pergunta} </h3>
-                <ImgIcone src={Setinha} alt={Setinha} />
+                <ImgIcone onClick={() => clicaFlashcard(2)} src={Setinha} alt={Setinha} />
             </DivAberto>
 
             <DivResposta resposta={terceiraDiv}>
@@ -142,6 +142,7 @@ const DivAberto = styled.div`
     cursor: default;
     margin-top: 10px;
     padding: 20px 10px;
+    border-radius: 5px;
     & img{
         margin-left: 0;
         margin-top: 90px;
@@ -180,6 +181,9 @@ const ImgIcone = styled.img`
     color: var(--preto);
     width: 23px;
     height: 23px;
+    &:hover{
+        cursor: pointer;
+    }
 
 `
 
