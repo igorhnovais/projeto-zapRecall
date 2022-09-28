@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styled from 'styled-components';
+
 import Checkmark from "./assets/img/checkmark-circle-icon.svg";
 import Close from "./assets/img/close-circle-icon.svg";
 import Help from "./assets/img/help-circle-icon.svg";
@@ -72,17 +74,87 @@ export default function FlashCards(props) {
 
             <div onClick={() => clicaFlashcard(2)} className={`aberto ${segundaDiv}`}>
                 <h3> {props.pergunta} </h3>
-                <img className="icone" src={Setinha} alt={Setinha} />
+                <ImgIcone src={Setinha} alt={Setinha} />
             </div>
 
             <div className={`resposta ${terceiraDiv}`}>
                 <h3> {props.resposta}</h3>
-                <div className="memoria">
-                    <button onClick={() => clicaFlashcard(3)} className="error"> <h6>Não Lembrei</h6></button>
-                    <button onClick={() => clicaFlashcard(4)} className="almost"> <h6>Quase não Lembrei</h6></button>
-                    <button onClick={() => clicaFlashcard(5)} className="zap"> <h6>Zap!</h6></button>
-                </div>
+                <DivMemoria>
+                    <ButtonError onClick={() => clicaFlashcard(3)}> <h6>Não Lembrei</h6></ButtonError>
+                    <ButtonAlmost onClick={() => clicaFlashcard(4)}> <h6>Quase não Lembrei</h6></ButtonAlmost>
+                    <ButtonZap onClick={() => clicaFlashcard(5)}> <h6>Zap!</h6></ButtonZap>
+                </DivMemoria>
             </div>
         </>
     )
 }
+
+const ImgIcone = styled.img`
+    color: var(--preto);
+    width: 23px;
+    height: 23px;
+
+`
+
+const DivMemoria = styled.div`
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+`
+
+const ButtonError = styled.button`
+    width: 100%;
+    height: 40px;
+    background-color: green;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-nao-lembrei);
+    &:hover{
+        filter: brightness(0.7)
+    }
+`
+
+const ButtonAlmost = styled.button`
+    width: 100%;
+    height: 40px;
+    background-color: green;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-quase-nao-lembrei);
+    &:hover{
+        filter: brightness(0.7)
+    }
+`
+
+const ButtonZap = styled.button`
+    width: 100%;
+    height: 40px;
+    background-color: green;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-zap);
+    &:hover{
+        filter: brightness(0.7)
+    }
+`

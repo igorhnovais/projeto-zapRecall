@@ -12,7 +12,7 @@
   --preto: #333333;
 }
 
-body {
+/* body {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -20,9 +20,9 @@ body {
   align-items: center;
   color: var(--preto);
   font-family: 'Recursive', sans-serif;
-  /*font-family: 'Righteous', cursive;*/ 
+  font-family: 'Righteous', cursive; 
   background-color: var(--cor-fundo);
-}
+} */
 
 /* .flashcard { 
   width: 300px;
@@ -58,12 +58,6 @@ body {
   margin-left: 170px;
 }
 
-.vermelho{
-  color: var(--cor-nao-lembrei);
-  text-decoration: line-through;
-  font-weight:600;
-}
-
 .svgErro{
   filter: invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%);
   width: 23px;
@@ -82,6 +76,11 @@ body {
   height: 23px;
 }
 
+.vermelho{
+  color: var(--cor-nao-lembrei);
+  text-decoration: line-through;
+  font-weight:600;
+}
 
 .amarelo{
   color: var(--cor-quase-nao-lembrei);
@@ -147,11 +146,11 @@ body {
   margin-top: 10px;
 }
 
-.memoria{
+/* .memoria{
   display: flex;
   margin-top: 20px;
   gap: 10px;
-}
+} */
 
 /* .footer {
   position: fixed;
@@ -203,7 +202,7 @@ img.icone {
 }
 
 
-button {
+/* button {
   width: 100%;
   height: 40px;
   background-color: green;
@@ -216,22 +215,22 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-button:hover {
+/* button:hover {
   filter: brightness(0.7)
-}
-button.error {
+} */
+/* button.error {
   background-color: var(--cor-nao-lembrei);
-}
+} */
 
-button.almost {
+/* button.almost {
   background-color: var(--cor-quase-nao-lembrei);
-}
+} */
 
-button.zap {
+/* button.zap {
   background-color: var(--cor-zap);
-}
+} */
 
 .escondido{
   display:none;

@@ -13,7 +13,7 @@ export default function App() {
     const [contador, setContador] = useState(0);
 
     return (
-        <>
+        <Body>
             <Header>
                 <img src={LogoPequeno} alt="logo zapRecall" />
                 <h1> ZapRecall </h1>
@@ -34,9 +34,21 @@ export default function App() {
             <Footer>
                 <h1>{contador}/{quantidadeCards} CONCLUÍDOS</h1>
             </Footer>
-        </>
+        </Body>
     )
 }
+
+const Body = styled.body`
+    width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--preto);
+  font-family: 'Recursive', sans-serif;
+  /*font-family: 'Righteous', cursive;*/ 
+  background-color: var(--cor-fundo);
+`
 
 const Header = styled.header`
     position: fixed;
