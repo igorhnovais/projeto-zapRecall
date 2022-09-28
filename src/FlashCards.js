@@ -61,7 +61,6 @@ export default function FlashCards(props) {
             default:
                 break;
         }
-       console.log(num);
     }
 
     return (

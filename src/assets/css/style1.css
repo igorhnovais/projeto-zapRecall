@@ -106,7 +106,7 @@ body {
   padding: 20px 10px;
 }
 
-.header {
+/* .header {
   position: fixed;
   height: 80px;
   top: 0;
@@ -121,16 +121,16 @@ body {
   font-family: "Righteous";
   z-index: 1;
   background-color: var(--cor-fundo);
-}
+} */
 
-.main {
+/* .main {
   max-height: 400px;
   overflow-y: auto;
 }
 
 .main::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .resposta {
   width: 100%;
@@ -153,7 +153,7 @@ body {
   gap: 10px;
 }
 
-.footer {
+/* .footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -170,13 +170,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
+} */
 
-.header img {
+/* .header img {
   width: 52px;
   height: 60px;
   margin-right: 20px;
-}
+} */
 
 .icone svg {
   width: 23px;
