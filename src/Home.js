@@ -1,16 +1,18 @@
 import Logo from "./assets/img/logo.png"
 import styled from 'styled-components';
 
-export default function Home(){
+export default function Home(props) {
+    const {mudaLayout, setMudalayout, setAparecePergunta} = props
 
-    function irParaPerguntas(props){
-        const {mudaLayout, setMudaLayout} = props
+    function irParaPerguntas(){
 
-        
-    }
+        setMudalayout("none");
+        setAparecePergunta("flex");
     
+    }
+
     return (
-        <MainHome>
+        <MainHome aparecePerguntas={mudaLayout} >
             <img src={Logo}></img>
             <h1>ZapRecall</h1>
             <button onClick={irParaPerguntas}> Iniciar Recall! </button>
@@ -23,7 +25,7 @@ const MainHome = styled.main`
     height: 100%;
     top: 0;
     left: 0;
-    display: flex;
+    display: ${props => props.aparecePerguntas};
     justify-content: center;
     align-items: center;
     flex-direction: column;
