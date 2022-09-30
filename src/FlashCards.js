@@ -9,6 +9,7 @@ import Play from "./assets/img/play-outline-icon.svg";
 
 export default function FlashCards(props) {
 
+    
     const [primeiraDiv, SetPrimeiraDiv] = useState("flex");
     const [segundaDiv, SetSegundaDiv] = useState("escondido");
     const [terceiraDiv, SetTerceiraDiv] = useState("escondido");
@@ -16,6 +17,7 @@ export default function FlashCards(props) {
     const [icone, setIcone] = useState(Play);
     const [svg, setSvg] = useState("#333333");
     const [num, setNum] = useState(1);
+    
 
 
     function clicaFlashcard(clique){
@@ -104,8 +106,9 @@ const DivNumeroPergunta = styled.div`
     padding: 10px 10px;
     cursor: pointer;
     font-family: 'Recursive', cursive;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
     & img{
-        margin-left: 170px;
+        margin-left: 160px;
         width: 23px;
         height: 23px;
         filter: ${props => props.cor};
@@ -143,6 +146,8 @@ const DivAberto = styled.div`
     margin-top: 10px;
     padding: 20px 10px;
     border-radius: 5px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+    border: 1px solid lightgray;
     & img{
         margin-left: 0;
         margin-top: 90px;
@@ -165,6 +170,8 @@ const DivResposta = styled.div`
     padding: 20px 10px;
     border-radius: 5px;
     margin-top: 10px; 
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+    border: 1px solid lightgray;
     & img{
         margin-left: 170px;
         width: 23px;
@@ -175,6 +182,10 @@ const DivResposta = styled.div`
 
 const DivFlex = styled.div`
     display: flex;
+    justify-content: space-around;
+   h3 {
+    width: 100px;
+   }
 `
 
 const ImgIcone = styled.img`

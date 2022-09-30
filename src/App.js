@@ -11,20 +11,23 @@ import styled from 'styled-components';
 
 
 export default function App() {
-    const [quantidadeCards, setQuantidadeCards] = useState(8);
     const [contador, setContador] = useState(0);
     const [mudaLayout, setMudalayout] = useState("flex");
     const [aparecePergunta, setAparecePergunta] = useState("none");
+    const [escolheDeck, setEscolheDeck] = useState(0);
+    let deckEscolhido = Deck[escolheDeck];
+
 
     return (
 
         <>
-            
-            <Home mudaLayout={mudaLayout} setMudalayout={setMudalayout} setAparecePergunta={setAparecePergunta}/>
+            <Reset />
+            <GlobalStyle />
+
+            <Home mudaLayout={mudaLayout} setMudalayout={setMudalayout} setAparecePergunta={setAparecePergunta} setEscolheDeck={setEscolheDeck}/>
 
             <BodyStyle escondeHome={aparecePergunta}>
-                <Reset />
-                <GlobalStyle />
+
                 <Header>
                     <img src={LogoPequeno} alt="logo zapRecall" />
                     <h1> ZapRecall </h1>
@@ -32,7 +35,7 @@ export default function App() {
 
                 <Main>
                     <section>
-                        {Deck.map((item, i) => <FlashCards
+                        {deckEscolhido.map((item, i) => <FlashCards
                             i={i}
                             pergunta={item.pergunta}
                             resposta={item.resposta}
@@ -43,7 +46,7 @@ export default function App() {
                 </Main>
 
                 <Footer>
-                    <h1>{contador}/{quantidadeCards} CONCLUÍDOS</h1>
+                    <h1>{contador}/{deckEscolhido.length} CONCLUÍDOS</h1>
                 </Footer>
             </BodyStyle>
         </>

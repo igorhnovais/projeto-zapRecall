@@ -1,8 +1,11 @@
 import Logo from "./assets/img/logo.png"
 import styled from 'styled-components';
+import SelectDeck from "./SelectDeck";
+
 
 export default function Home(props) {
-    const {mudaLayout, setMudalayout, setAparecePergunta} = props
+    const {mudaLayout, setMudalayout, setAparecePergunta, setEscolheDeck} = props
+    
 
     function irParaPerguntas(){
 
@@ -15,6 +18,7 @@ export default function Home(props) {
         <MainHome aparecePerguntas={mudaLayout} >
             <img src={Logo}></img>
             <h1>ZapRecall</h1>
+            <SelectDeck setEscolheDeck={setEscolheDeck}/>
             <button onClick={irParaPerguntas}> Iniciar Recall! </button>
         </MainHome>
     )
@@ -47,6 +51,7 @@ const MainHome = styled.main`
         color: #D70900;
         border: 1px;
         font-size: 18px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.20);
         cursor: pointer;
     }
     & button:hover {
