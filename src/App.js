@@ -75,6 +75,7 @@ const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
     padding: 10px 0;
     font-size: 36px;
     color: white;
@@ -89,7 +90,7 @@ const Header = styled.header`
 `
 
 const Main = styled.main`
-    max-height: 400px;
+    max-height: 480px;
     overflow-y: auto;
     &::-webkit-scrollbar{
         display: none; 

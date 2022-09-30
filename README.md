@@ -19,7 +19,7 @@ Esse projeto teve o intuito de fazer um site mobile de memorização de pergunta
 - Escolher o deck de perguntas e respostas no menu Home.
 - Assim que escolhe o deck de cartas, clica em cada card e aparece a pergunta, sentindo confiança vira o card novamente para memorizar a resposta, caso lembre da resposta clica em "zap!", se ficou com duvida clica em "Quase não lembrei", se por ventura não lembrou, clica em "Não Lembrei".
 - Conforme for clicando e virando os cards, vai contando a quantidade de perguntas respondidas.
-- 
+ 
 
 ## link do deploy do Vercel
 https://projeto-zap-recall-eight.vercel.app/
