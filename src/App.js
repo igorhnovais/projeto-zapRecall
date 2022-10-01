@@ -127,6 +127,7 @@ const ButtonHome = styled.button`
     width: 300px;
     border-radius: 5px;
     background-color: var(--cor-fundo);
+    color: black;
     border: none;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.30);
     font-size: 16px;
