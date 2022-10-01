@@ -16,10 +16,10 @@ export default function Home(props) {
 
     return (
         <MainHome aparecePerguntas={mudaLayout} >
-            <img src={Logo}></img>
+            <img src={Logo} alt={"logo"}></img>
             <h1>ZapRecall</h1>
             <SelectDeck setEscolheDeck={setEscolheDeck}/>
-            <button onClick={irParaPerguntas}> Iniciar Recall! </button>
+            <button onClick={irParaPerguntas} data-identifier="start-btn"> Iniciar Recall! </button>
         </MainHome>
     )
 }

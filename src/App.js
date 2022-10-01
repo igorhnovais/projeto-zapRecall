@@ -17,6 +17,10 @@ export default function App() {
     const [escolheDeck, setEscolheDeck] = useState(0);
     let deckEscolhido = Deck[escolheDeck];
 
+    function voltaHome(){
+        window.location.reload();
+    }
+
 
     return (
 
@@ -28,12 +32,12 @@ export default function App() {
 
             <BodyStyle escondeHome={aparecePergunta}>
 
-                <Header>
+                <Header onClick={voltaHome}>
                     <img src={LogoPequeno} alt="logo zapRecall" />
                     <h1> ZapRecall </h1>
                 </Header>
 
-                <Main>
+                <Main data-identifier="flashcard">
                     <section>
                         {deckEscolhido.map((item, i) => <FlashCards
                             i={i}
@@ -46,7 +50,8 @@ export default function App() {
                 </Main>
 
                 <Footer>
-                    <h1>{contador}/{deckEscolhido.length} CONCLUÍDOS</h1>
+                    <h1 data-identifier="flashcard-counter">{contador}/{deckEscolhido.length} CONCLUÍDOS</h1>
+                    <ButtonHome onClick={voltaHome}> Voltar para Home </ButtonHome>
                 </Footer>
             </BodyStyle>
         </>
@@ -68,14 +73,13 @@ const BodyStyle = styled.div`
 
 const Header = styled.header`
     position: fixed;
-    height: 80px;
+    height: 110px;
     top: 0;
     left: 0;
     right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     padding: 10px 0;
     font-size: 36px;
     color: white;
@@ -111,7 +115,22 @@ const Footer = styled.footer`
     color: black;
     position: fixed;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 20px;
+`
+
+const ButtonHome = styled.button`
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: var(--cor-fundo);
+    border: none;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.30);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 8px;
+    margin-bottom: 10px;
 `

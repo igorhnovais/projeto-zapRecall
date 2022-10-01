@@ -3,14 +3,14 @@ import styled from "styled-components";
 export default function SelectDeck({setEscolheDeck}){
     return (
         <DivSelect>
-            <select onChange={(e) => setEscolheDeck(e.target.value)}>
-                <OptionNone value={0}> Escolha o seu Deck </OptionNone>
-                <option value={0}> React Deck </option>
-                <option value={1}> PercyJackson Deck </option>
-                <option value={2}> HarryPotter Deck </option>
-                <option value={3}> Pokémon Deck </option>
-                <option value={4}> GreekMythology Deck </option>
-                <option value={5}> LoL Deck </option>
+            <select onChange={(e) => setEscolheDeck(e.target.value)} data-identifier="deck-selector">
+                <OptionNone value={0} data-identifier="deck-option"> Escolha o seu Deck </OptionNone>
+                <option value={0} data-identifier="deck-option"> React Deck </option>
+                <option value={1} data-identifier="deck-option"> PercyJackson Deck </option>
+                <option value={2} data-identifier="deck-option"> HarryPotter Deck </option>
+                <option value={3} data-identifier="deck-option"> Pokémon Deck </option>
+                <option value={4} data-identifier="deck-option"> GreekMythology Deck </option>
+                <option value={5} data-identifier="deck-option"> LoL Deck </option>
             </select>
         </DivSelect>
     )

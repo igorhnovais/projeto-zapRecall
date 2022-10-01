@@ -17,6 +17,7 @@ export default function FlashCards(props) {
     const [icone, setIcone] = useState(Play);
     const [svg, setSvg] = useState("#333333");
     const [num, setNum] = useState(1);
+    const [data, setData] = useState("");
     
 
 
@@ -38,6 +39,7 @@ export default function FlashCards(props) {
                 Setclasse("vermelho");
                 setIcone(Close);
                 setSvg("invert(31%) sepia(94%) saturate(3050%) hue-rotate(342deg) brightness(102%) contrast(108%)");
+                setData("flashcard-status");
                 props.setContador(props.contador+1);
                 setNum(6);
                 break;
@@ -48,6 +50,7 @@ export default function FlashCards(props) {
                 Setclasse("amarelo");
                 setIcone(Help);
                 setSvg("invert(72%) sepia(18%) saturate(5162%) hue-rotate(335deg) brightness(100%) contrast(106%)");
+                setData("flashcard-status");
                 props.setContador(props.contador+1);
                 setNum(6);
                 break;
@@ -58,6 +61,7 @@ export default function FlashCards(props) {
                 Setclasse("verde");
                 setIcone(Checkmark);
                 setSvg("invert(59%) sepia(10%) saturate(3410%) hue-rotate(72deg) brightness(99%) contrast(88%)");
+                setData("flashcard-status");
                 props.setContador(props.contador+1);
                 setNum(6);
                 break;
@@ -69,24 +73,24 @@ export default function FlashCards(props) {
 
     return (
         <>
-            <DivNumeroPergunta onClick={() => clicaFlashcard(num)} numeroPergunta={primeiraDiv} cor={svg}>          
+            <DivNumeroPergunta onClick={() => clicaFlashcard(num)} numeroPergunta={primeiraDiv} filter={svg} data-identifier="flashcard-show-btn">          
                 <DivFlex>
                     <h3 className={classe} >Pergunta {props.i + 1}</h3>
-                    <img src={icone} alt={icone} />
+                    <img data-identifier={data} src={icone} alt={icone} />
                 </DivFlex>
             </DivNumeroPergunta>
 
             <DivAberto aberto={segundaDiv}>
-                <h3> {props.pergunta} </h3>
-                <ImgIcone onClick={() => clicaFlashcard(2)} src={Setinha} alt={Setinha} />
+                <h3 data-identifier="flashcard-index-item"> {props.pergunta} </h3>
+                <ImgIcone onClick={() => clicaFlashcard(2)} src={Setinha} alt={Setinha} data-identifier="flashcard-turn-btn" />
             </DivAberto>
 
             <DivResposta resposta={terceiraDiv}>
-                <h3> {props.resposta}</h3>
+                <h3 data-identifier="flashcard-answer"> {props.resposta}</h3>
                 <DivMemoria>
-                    <ButtonError onClick={() => clicaFlashcard(3)}> <h6>Não Lembrei</h6></ButtonError>
-                    <ButtonAlmost onClick={() => clicaFlashcard(4)}> <h6>Quase não Lembrei</h6></ButtonAlmost>
-                    <ButtonZap onClick={() => clicaFlashcard(5)}> <h6>Zap!</h6></ButtonZap>
+                    <ButtonError onClick={() => clicaFlashcard(3)} data-identifier="forgot-btn"> <h6>Não Lembrei</h6></ButtonError>
+                    <ButtonAlmost onClick={() => clicaFlashcard(4)} data-identifier="almost-forgot-btn"> <h6>Quase não Lembrei</h6></ButtonAlmost>
+                    <ButtonZap onClick={() => clicaFlashcard(5)} data-identifier="zap-btn"> <h6>Zap!</h6></ButtonZap>
                 </DivMemoria>
             </DivResposta>
         </>
@@ -107,11 +111,12 @@ const DivNumeroPergunta = styled.div`
     cursor: pointer;
     font-family: 'Recursive', cursive;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+    visibility: visible;
     & img{
         margin-left: 160px;
         width: 23px;
         height: 23px;
-        filter: ${props => props.cor};
+        filter: ${props => props.filter};
     }
     & h3{
         margin-top: 5px;
@@ -148,6 +153,7 @@ const DivAberto = styled.div`
     border-radius: 5px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
     border: 1px solid lightgray;
+    visibility: visible;
     & img{
         margin-left: 0;
         margin-top: 90px;
@@ -172,6 +178,7 @@ const DivResposta = styled.div`
     margin-top: 10px; 
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
     border: 1px solid lightgray;
+    visibility: visible;
     & img{
         margin-left: 170px;
         width: 23px;
@@ -230,6 +237,7 @@ const ButtonAlmost = styled.button`
     color: white;
     font-size: 12px;
     font-weight: 700;
+    padding: 10px;
     border-radius: 4px;
     border: none;
     cursor: pointer;
