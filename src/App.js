@@ -86,6 +86,7 @@ const Header = styled.header`
     font-family: "Righteous";
     z-index: 1;
     background-color: var(--cor-fundo);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.35);
     & img{
         width: 52px;
         height: 60px;
@@ -120,6 +121,7 @@ const Footer = styled.footer`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.35);
 `
 
 const ButtonHome = styled.button`
